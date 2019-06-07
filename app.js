@@ -1,5 +1,4 @@
 const express = require('express');
-const postgres = require('pg');
 const { Pool  } = require('pg');
 const requireDir = require('require-dir');
 
@@ -19,14 +18,12 @@ const pool = new Pool({
 
 
 /* Função que adiciona automaticamente no código tudo que esta na pasta models */
-requireDir('./src/models');
+requireDir('./app/models');
 
 /* Rotas */ 
 app.use("/api", require("./src/routes"));
 
 /* Teste de Conexão */
-  
-
 
 app.listen(3001);
 
